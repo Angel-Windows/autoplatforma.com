@@ -3,9 +3,9 @@
         <div class="mx-auto max-w-[1290px] px-[15px]">
             <div class="flex justify-between mx-auto max-w-screen-xl py-[7px] ">
                 <div class="flex justify-center items-center gap-[32px]">
-                    <a href="https://flowbite.com" class="hidden lg:flex items-center">
+                    <a href="{{route("page.home")}}" class="hidden lg:flex items-center">
                         <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9"
-                             alt="Flowbite Logo"/>
+                             alt="Flowbite Logo" />
                         <span
                             class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">AUTOPLATFORMA</span>
                     </a>
@@ -13,23 +13,20 @@
 
                     <a href="https://flowbite.com" class="flex lg:hidden items-center">
                         <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9"
-                             alt="Flowbite Logo"/>
+                             alt="Flowbite Logo" />
                         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">APF.COM</span>
                     </a>
                     <div class="hidden md:flex justify-center items-center gap-[32px]">
                         <button type="button"
-                                class="text-sm font-medium text-gray-500 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                            For
-                            dealers
-                        </button>
+                                class="text-sm font-medium text-gray-500 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">For
+                            dealers</button>
                         <button type="button"
-                                class="text-sm font-medium text-gray-500 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                            Franchise
-                        </button>
+                                class="text-sm font-medium text-gray-500 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Franchise</button>
                     </div>
 
 
                 </div>
+
 
 
                 <!-- block EN -->
@@ -40,8 +37,7 @@
                         <span class="hidden mr-2 md:inline">English</span>
                         <svg class="hidden w-4 h-4 md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M19 9l-7 7-7-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                             </path>
                         </svg>
                     </button>
@@ -53,8 +49,7 @@
                         <span class="hidden mr-2 md:inline">Currency</span>
                         <svg class="hidden w-4 h-4 md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M19 9l-7 7-7-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                             </path>
                         </svg>
                     </button>
@@ -116,7 +111,7 @@
                         <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 320 512">
                             <path
-                                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+                                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
                         </svg>
                     </a>
                     <a href="#"
@@ -124,7 +119,7 @@
                         <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 448 512">
                             <path
-                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                         </svg>
                     </a>
 
@@ -132,7 +127,7 @@
 
                 <!-- Login & Sign Up  -->
 
-                <div class="flex md:hidden  items-center lg:order-3">
+                <div  class="flex md:hidden  items-center lg:order-3">
 
                     <a id="sign-up1" href="#"
                        class=" flex text-white items-center bg-primary-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-[8px] py-2 lg:pr-[16px] lg:pl-[11px] lg:py-[8px] dark:bg-primary-500 dark:hover:bg-primary-500 focus:outline-none dark:focus:ring-primary-800 mr-[5px] ">
@@ -144,8 +139,7 @@
                             class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 "
                             aria-controls="mobile-menu-3" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                                   clip-rule="evenodd"></path>
@@ -160,14 +154,17 @@
                 </div>
 
 
+
+
             </div>
         </div>
     </div>
 
 
+
     <!-- line across the screen -->
 
-    <div class=" h-[1px] bg-gray-200 w-[100%]"></div>
+    <div class=" h-[1px] bg-gray-200 w-[100%]"> </div>
 
     <div class="mx-auto max-w-[1290px] px-[15px]">
         <!-- list -->
@@ -176,15 +173,13 @@
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
                     <button id="mega-menu-button-3" data-dropdown-toggle="mega-menu-3"
-                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 lg:w-auto hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ">
-                        Makes
+                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 lg:w-auto hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ">Makes
                         <svg class="ml-1 w-5 h-5 lg:w-4 lg:h-4" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                   d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                   clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
+                        </svg></button>
                     <a href="#"
                        class="block py-2 pr-4 pl-3 border-b border-gray-100 text-gray-600 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 dark:text-primary-500 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-primary-500 lg:dark:hover:bg-transparent dark:border-gray-700 "
                        aria-current="page">Models</a>
@@ -218,8 +213,7 @@
                                         <div>
                                             <div class="font-semibold ">Explore Design Work</div>
                                             <div class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                Trending designs to inspire you
-                                            </div>
+                                                Trending designs to inspire you</div>
                                         </div>
                                     </a>
                                 </li>
@@ -237,8 +231,7 @@
                                         <div>
                                             <div class="font-semibold ">New & Noteworthy</div>
                                             <div class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                Up-and-coming designers
-                                            </div>
+                                                Up-and-coming designers</div>
                                         </div>
                                     </a>
                                 </li>
@@ -258,8 +251,7 @@
                                         <div>
                                             <div class="font-semibold ">Playoffs</div>
                                             <div class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                Work designers are riffing on
-                                            </div>
+                                                Work designers are riffing on</div>
                                         </div>
                                     </a>
                                 </li>
@@ -280,8 +272,7 @@
                                         <div>
                                             <div class="font-semibold ">Blog</div>
                                             <div class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                Interviews, tutorials, and more
-                                            </div>
+                                                Interviews, tutorials, and more</div>
                                         </div>
                                     </a>
                                 </li>
@@ -299,8 +290,7 @@
                                         <div>
                                             <div class="font-semibold ">Weekly Warm-up</div>
                                             <div class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                Prompt to flex your skills
-                                            </div>
+                                                Prompt to flex your skills</div>
                                         </div>
                                     </a>
                                 </li>
@@ -315,20 +305,17 @@
                                        class="hover:text-primary-600 dark:hover:text-primary-500 ">Animation</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                       class="hover:text-primary-600 dark:hover:text-primary-500 ">Branding</a>
+                                    <a href="#" class="hover:text-primary-600 dark:hover:text-primary-500 ">Branding</a>
                                 </li>
                                 <li>
                                     <a href="#"
                                        class="hover:text-primary-600 dark:hover:text-primary-500 ">Illustration</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                       class="hover:text-primary-600 dark:hover:text-primary-500 ">Mobile</a>
+                                    <a href="#" class="hover:text-primary-600 dark:hover:text-primary-500 ">Mobile</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                       class="hover:text-primary-600 dark:hover:text-primary-500 ">Print</a>
+                                    <a href="#" class="hover:text-primary-600 dark:hover:text-primary-500 ">Print</a>
                                 </li>
                                 <li>
                                     <a href="#" class="hover:text-primary-600 dark:hover:text-primary-500 ">Product
@@ -375,11 +362,10 @@
                                    placeholder="Search by vin, make or model" required autocomplete="new-password">
                             <button type="submit"
                                     class=" justify-end absolute right-0 bottom-0 bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 h-full dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                <svg class="w-4 h-4 text-white " aria-hidden="true"
-                                     xmlns="http://www.w3.org/2000/svg"
+                                <svg class="w-4 h-4 text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                      fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                          stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </button>
 
@@ -418,15 +404,13 @@
                         <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
                             <li>
                                 <button id="mega-menu-button" data-dropdown-toggle="mega-menu"
-                                        class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-900 border-b border-gray-100 lg:w-auto hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ">
-                                    Makes
+                                        class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-900 border-b border-gray-100 lg:w-auto hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-600 lg:p-0 dark:text-gray-400 lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ">Makes
                                     <svg class="ml-1 w-5 h-5 lg:w-4 lg:h-4" fill="currentColor" viewBox="0 0 20 20"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                               clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
+                                    </svg></button>
                                 <div id="mega-menu"
                                      class="grid hidden absolute z-10 w-full bg-white border border-gray-100 shadow-md dark:border-gray-700 lg:rounded-lg lg:w-auto lg:grid-cols-3 dark:bg-gray-700">
                                     <div
@@ -447,8 +431,7 @@
                                                         <div class="font-semibold ">Explore Design Work</div>
                                                         <div
                                                             class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                            Trending designs to inspire you
-                                                        </div>
+                                                            Trending designs to inspire you</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -467,8 +450,7 @@
                                                         <div class="font-semibold ">New & Noteworthy</div>
                                                         <div
                                                             class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                            Up-and-coming designers
-                                                        </div>
+                                                            Up-and-coming designers</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -490,8 +472,7 @@
                                                         <div class="font-semibold ">Playoffs</div>
                                                         <div
                                                             class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                            Work designers are riffing on
-                                                        </div>
+                                                            Work designers are riffing on</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -513,8 +494,7 @@
                                                         <div class="font-semibold  ">Blog</div>
                                                         <div
                                                             class="text-sm font-light text-gray-500 dark:text-gray-400  ">
-                                                            Interviews, tutorials, and more
-                                                        </div>
+                                                            Interviews, tutorials, and more</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -533,8 +513,7 @@
                                                         <div class="font-semibold ">Weekly Warm-up</div>
                                                         <div
                                                             class="text-sm font-light text-gray-500 dark:text-gray-400 ">
-                                                            Prompt to flex your skills
-                                                        </div>
+                                                            Prompt to flex your skills</div>
                                                     </div>
                                                 </a>
                                             </li>
@@ -607,6 +586,7 @@
                             </li>
                         </ul>
                     </div>
+
 
 
                 </div>

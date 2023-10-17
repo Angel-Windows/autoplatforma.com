@@ -12,18 +12,18 @@
           rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>main </title>
-
-
+    <title>Main</title>
 </head>
 <body id="body-page" class="dark:bg-gray-800">
 <div class="wrapper flex min-h-[100vh] flex-col">
-    @include("components.header")
+    @include("layout.header")
     @yield("content")
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-    @yield("script")
+    @include("layout.footer")
+    @include("components.modals")
 </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+@yield("script")
 </body>
 </html>
