@@ -1,0 +1,158 @@
+"use strict";
+
+// --------------- слайдер цена ----------------------------
+
+// Получаем ссылки на элементы
+const slider = document.getElementById("slider");
+const minValue = document.getElementById("min-value");
+const maxValue = document.getElementById("max-value");
+
+// Создаем слайдер с помощью noUiSlider
+noUiSlider.create(slider, {
+  start: [1996, 2024], // Значения по умолчанию
+  connect: true, // Связываем оба ползунка
+  range: {
+    min: 1996,
+    max: 2024,
+  },
+  format: {
+    to: (value) => Math.round(value), // Форматируем значения до целых чисел
+    from: (value) => parseInt(value),
+  },
+});
+
+// Обновляем значения текстовых полей при изменении слайдера
+slider.noUiSlider.on("update", (values, handle) => {
+  if (handle === 0) {
+    minValue.value = values[handle];
+  } else if (handle === 1) {
+    maxValue.value = values[handle];
+  }
+});
+
+// Обновляем слайдер при изменении значений в текстовых полях
+minValue.addEventListener("change", () => {
+  slider.noUiSlider.set([minValue.value, null]);
+});
+
+maxValue.addEventListener("change", () => {
+  slider.noUiSlider.set([null, maxValue.value]);
+});
+
+// Функция для проверки текущей ширины экрана и переключения видимости элементов
+function toggleElements() {
+  const dropdownMobile = document.getElementById("dropdownMobile");
+  const dropdownDesktop = document.getElementById("dropdownDesktop");
+
+  if (window.innerWidth < 768) {
+    dropdownMobile.classList.remove("hidden");
+    dropdownDesktop.classList.add("hidden");
+  } else {
+    dropdownMobile.classList.add("hidden");
+    dropdownDesktop.classList.remove("hidden");
+  }
+}
+
+// Вызываем функцию при загрузке страницы и изменении размера окна
+window.addEventListener("load", toggleElements);
+window.addEventListener("resize", toggleElements);
+
+//=================================================================================================================
+//------------------------------- на странице каталога смена крестика на крыжик ------------------------------------
+const blockSearch = document.querySelectorAll(".box-search"); // блок с поисками
+const input = document.querySelectorAll(".inp-search"); // поле инпут
+const buttonBtn = document.querySelector(".button-btn"); // крестик
+const btnCross = document.querySelector(".button-btn-cross"); // кнопка закрыть
+
+// Функция для показа блоков поиска и скрытия кнопок
+function showSearchBlocks() {
+  blockSearch.forEach((blockElement) => {
+    blockElement.classList.remove("hidden");
+  });
+  buttonBtn.classList.add("hidden");
+  btnCross.classList.remove("hidden");
+}
+
+// Функция для скрытия блоков поиска и показа кнопок
+function hideSearchBlocks() {
+  blockSearch.forEach((blockElement) => {
+    blockElement.classList.add("hidden");
+  });
+  buttonBtn.classList.remove("hidden");
+  btnCross.classList.add("hidden");
+}
+
+// Добавляем обработчик клика к input
+input.forEach((inputElement) => {
+  inputElement.addEventListener("click", (e) => {
+    e.stopPropagation(); // Отменяем всплытие события
+    showSearchBlocks();
+  });
+});
+
+// Добавляем обработчик клика к кнопке закрыть
+btnCross.addEventListener("click", (e) => {
+  e.stopPropagation(); // Отменяем всплытие события
+  hideSearchBlocks();
+  input.forEach((inputElement) => {
+    inputElement.value = ""; // Очищаем значение поля ввода
+    inputElement.blur(); // Убираем фокус с поля ввода
+  });
+});
+
+// Добавляем обработчик клика к документу для скрытия блоков поиска
+document.addEventListener("click", () => {
+  hideSearchBlocks();
+  input.forEach((inputElement) => {
+    inputElement.value = ""; // Очищаем значение поля ввода
+    inputElement.blur(); // Убираем фокус с поля ввода
+  });
+});
+
+// Добавляем обработчик клика к блокам поиска, чтобы предотвратить всплытие события
+blockSearch.forEach((blockElement) => {
+  blockElement.addEventListener("click", (e) => {
+    e.stopPropagation(); // Отменяем всплытие события
+  });
+});
+
+//---------------------------- код на выпадашку внутри make -----------------------------------------------
+
+const inpMake = document.querySelectorAll(".inp-make");
+const checkMake = document.querySelectorAll(".check-make");
+
+inpMake.forEach((inputElement, index) => {
+  inputElement.addEventListener("click", () => {
+    // Убираем класс hidden у соответствующего checkMake
+    checkMake[index].classList.remove("hidden");
+  });
+});
+
+//========================================================================================================
+//--------------------------- код на кнопки all  live  sold ----------------------------------------------
+
+const bottons = document.querySelectorAll(".tabu-body__item");
+const tabuBtn = document.querySelectorAll("[data-tab]"); // выбираю кнопки табы
+const tabContent = document.querySelectorAll("[data-tab-content]"); // вибираю тело таба
+
+tabuBtn.forEach((item) => {
+  // перебираю кнопки табы
+  item.addEventListener("click", function () {
+    // вешаю клик на каждую кнопку
+    tabuBtn.forEach(function (element) {
+      // перебираю кнопки
+      element.classList.remove("_activ"); // удадяю класс актив сразу же
+    });
+    item.classList.add("_activ"); // добавляю класс актив к следующей кнопку
+    //console.log(this.dataset.tab); // tab - потому что data-
+    const tabActiv = document.querySelector("#" + this.dataset.tab); // вибираю активний таб в теле таба
+
+    tabContent.forEach(function (i) {
+      // перебираю тела табов
+      i.classList.add("hiden"); // добавляю активний класс
+    });
+    tabActiv.classList.remove("hiden"); // удаляю активний класс
+  });
+});
+
+//===================================================================================================================
