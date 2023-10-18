@@ -99,7 +99,7 @@ if (!($item_card->id & 1)) {
             </div>
             <p class="text-xs font-medium text-gray-900 dark:text-gray-300">{{$item_card->year}} year</p>
         </div>
-        <button onclick="sendFetchRequest('{{route('page.home')}}')">cl</button>
+        <button onclick="Post('{{route("catalog.filter")}}')">cl</button>
         <!-- right calendar -->
         <div class="flex gap-1">
             <div>

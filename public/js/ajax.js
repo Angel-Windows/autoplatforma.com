@@ -1,18 +1,31 @@
-function sendFetchRequest($url) {
-    fetch($url)
-        .then(function (response) {
-            if (response.status >= 200 && response.status < 300) {
-                return response.json();
-            } else {
-                throw new Error('Ошибка при выполнении запроса');
-            }
+const csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+Post = (url, func = () => {
+}, parameters = {}) => {
+    getResource(url, parameters)
+        .then(data => {
+            console.log(22)
+            // func(data)
         })
-        .then(function (data) {
-            console.log(data);
-        })
-        .catch(function (error) {
-            console.error(error);
+        .catch(error => console.error(error));
+
+    async function getResource(url, parameters) {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json, text-plain, */*",
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-TOKEN": csrf_token
+            },
+            // body: parameters
+            body: JSON.stringify(parameters)
         });
+
+        if (!res.ok) {
+            throw new Error(`Не удалось получить ${url}, статус: ${res.status}`);
+        }
+        // return await res;
+        return await res.json();
+    }
 }
 
-sendFetchRequest();
