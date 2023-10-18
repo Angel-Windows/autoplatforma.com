@@ -9,11 +9,11 @@ const maxValue = document.getElementById("max-value");
 
 // Создаем слайдер с помощью noUiSlider
 noUiSlider.create(slider, {
-  start: [1996, 2024], // Значения по умолчанию
+  start: [arrayYearSlider[0], arrayYearSlider[1]], // Значения по умолчанию
   connect: true, // Связываем оба ползунка
   range: {
-    min: 1996,
-    max: 2024,
+    min: arrayYearSlider[0],
+    max: arrayYearSlider[1],
   },
   format: {
     to: (value) => Math.round(value), // Форматируем значения до целых чисел

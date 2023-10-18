@@ -21,6 +21,7 @@
     @include("layout.footer")
     @include("components.modals")
 </div>
+<script src="{{asset("js/ajax.js")}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
