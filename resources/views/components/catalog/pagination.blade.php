@@ -3,25 +3,29 @@ $page_start = 1;
 $show_first_button = true;
 $show_last_button = true;
 $max_count_links = 7;
+$page_max_count = 1;
 if ($page_active > 4) {
     $page_start = $page_active - 4;
-}
-if ($page_active > $page_count - 4) {
-    $page_start = $page_active - 5;
-}
-$page_max_count = $page_start;
-if ($page_max_count > $page_count - $max_count_links + -1) {
-    $page_max_count = $page_count - $max_count_links + 1;
-    $show_last_button = false;
+    if ($page_active > $page_count - 4) {
+        $page_start = $page_active - 5;
+    }
+    $page_max_count = $page_start;
+    if ($page_max_count > $page_count - $max_count_links + -1) {
+        $page_max_count = $page_count - $max_count_links + 1;
+        $show_last_button = false;
+    }
+
 }
 if ($page_max_count < 2) {
     $show_first_button = false;
-    $max_count_links = 8;
+    $show_last_button = false;
+    $max_count_links = $page_count > 8 ? 8 : $page_count;
 }
 if ($show_first_button && $show_last_button) {
     $max_count_links = 5;
     $page_max_count += 2;
 }
+
 
 $button_previous = $page_active > 1 ? $page_active - 1 : $page_active;
 $button_next = $page_active < $page_count ? $page_active + 1 : $page_active;
@@ -46,7 +50,7 @@ $button_next = $page_active < $page_count ? $page_active + 1 : $page_active;
                        class="hidden lg:flex text-base font-medium items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ">1</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="{{route("page.catalog", ['page'=>$page_max_count-1])}}"
                        class="flex text-base font-medium items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ">...</a>
                 </li>
             @endif
@@ -64,12 +68,12 @@ $button_next = $page_active < $page_count ? $page_active + 1 : $page_active;
             @endfor
             @if($show_last_button)
                 <li>
-                    <a href="#"
+                    <a href="{{route("page.catalog", ['page'=>$page_max_count+$max_count_links])}}"
                        class="flex text-base font-medium items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ">...</a>
                 </li>
 
                 <li>
-                    <a href="#"
+                    <a href="{{route("page.catalog", ['page'=>$page_count])}}"
                        class="flex lg:hidden text-base font-medium items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ">100</a>
                 </li>
 

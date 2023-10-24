@@ -1,12 +1,14 @@
 const csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+// let JSON = '';
 Post = (url, func = () => {
 }, parameters = {}) => {
     getResource(url, parameters)
         .then(data => {
-            console.log(22)
+            console.log(data)
+            // update_card()
             // func(data)
         })
-        .catch(error => console.error(error));
+        .catch(error => console.log(error));
 
     async function getResource(url, parameters) {
         const res = await fetch(url, {
@@ -15,7 +17,7 @@ Post = (url, func = () => {
                 "Content-Type": "application/json",
                 "Accept": "application/json, text-plain, */*",
                 "X-Requested-With": "XMLHttpRequest",
-                "X-CSRF-TOKEN": csrf_token
+                "X-CSRF-TOKEN": csrf_token,
             },
             // body: parameters
             body: JSON.stringify(parameters)
@@ -27,5 +29,10 @@ Post = (url, func = () => {
         // return await res;
         return await res.json();
     }
+}
+
+
+const update_card = () => {
+    // console.log(JSON)
 }
 

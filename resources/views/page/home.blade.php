@@ -620,6 +620,5 @@
     </div>
 @stop
 @section("script")
-    <script src="js/sign-js.js"></script>
     <script src="js/main-js.js"></script>
 @stop

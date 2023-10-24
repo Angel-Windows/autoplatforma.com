@@ -13,6 +13,8 @@ use \Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static whereIn(string $string, array $array)
  * @method static paginate(int $int)
  * @method static find(int $int)
+ * @method static orderBy(string $string, string $string1)
+ * @method static select(string $string)
  */
 class LotsItemCopart extends Model
 {
@@ -44,13 +46,47 @@ class LotsItemCopart extends Model
     {
         return $this->hasOne(LotDamage::class, 'id', "damage_id");
     }
+    public function damage2(): HasOne
+    {
+        return $this->hasOne(LotDamage::class, 'id', "damage2_id");
+    }
 
     public function attachments(): HasOne
     {
         return $this->hasOne(Attachments::class, 'id', "id");
     }
-    public function runDrive(){
+
+    public function runDrive()
+    {
         return $this->hasOne(LotRunsDrive::class, 'id', "runs_drive_id");
     }
+
+    public function transsmision()
+    {
+        return $this->hasOne(LotTransmission::class, 'id', "transmission_id");
+    }
+
+    public function color()
+    {
+        return $this->hasOne(LotColor::class, 'id', "color_id");
+    }
+
+    public function drive()
+    {
+        return $this->hasOne(LotDrive::class, 'id', "drive_id");
+    }
+
+    public function fuel()
+    {
+        return $this->hasOne(LotFuel::class, 'id', "fuel_id");
+    }
+    public function saleStatus()
+    {
+        return $this->hasOne(LotSaleStatus::class, 'id', "sale_status_id");
+    }
+//    public function saleStatus()
+//    {
+//        return $this->hasOne(LotSaleStatus::class, 'id', "sale_status_id");
+//    }
 
 }

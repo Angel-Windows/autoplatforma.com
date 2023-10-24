@@ -5,7 +5,6 @@
 
     </script>
     <div class="flex-auto dark:bg-gray-800">
-
         <!-- Catalog block -->
         <div class="mx-auto max-w-[1290px] px-[15px] pt-[16px] pb-[34px] lg:-10">
             <div class="">
@@ -34,32 +33,7 @@
                                     Home
                                 </a>
                             </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                         xmlns="http://www.w3.org/2000/svg"
-                                         fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="m1 9 4-4-4-4"/>
-                                    </svg>
-                                    <a href="#"
-                                       class="ml-1 text-sm font-medium text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-400 dark:hover:text-white ">Mercedes-Benz</a>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div class="flex items-center">
-                                    <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                         xmlns="http://www.w3.org/2000/svg"
-                                         fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="m1 9 4-4-4-4"/>
-                                    </svg>
-                                    <span
-                                        class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400 ">AMG</span>
-                                </div>
-                            </li>
+
                         </ol>
                     </nav>
 
@@ -67,8 +41,11 @@
                 <div class="block md:flex items-start  gap-[25px] px-[0] md:px-[25px]">
                     <!-- left column -->
 
-                    <div
-                        class="w-[100%] md:w-[50%] lg:w-[30%]  rounded-[8px] bg-white dark:bg-gray-900 pt-[12px] pb-[12px] pl-[12px] pr-[12px] shadow-md ">
+                    <form
+                        method="POST"
+                        action="{{route('catalog.filter')}}"
+                        class="w-[100%] md:w-[50%] lg:w-[30%]  rounded-[8px] bg-white dark:bg-gray-900 pt-[12px] pb-[12px] pl-[12px] pr-[12px] shadow-md filter_car_form">
+                        <input type="hidden" name="page" value="{{$page_active}}">
                         <div class="flex justify-between items-center">
                             <p class="text-sm font-medium text-gray-900 ">Filters</p>
                             <button class="text-primary-600 hover:text-primary-800 text-sm font-medium ">Clear all
@@ -84,10 +61,10 @@
                                        class="block  text-sm font-medium text-gray-900 dark:text-white ">
                                     Select make & model</label>
                                 <div>
-                                    <img src="img/catalog/information-circle.svg" alt="information-circle">
+                                    <img src="{{asset("img/catalog/information-circle.svg")}}" alt="information-circle">
                                 </div>
                             </div>
-                            <form action="" class="relative flex mb-2 ">
+                            <div class="relative flex mb-2 ">
                                 <!-- <img src="img/catalog/search-primary.svg" alt="icon" > -->
 
                                 <svg class="absolute top-[9px] left-[16px]" width="18" height="19" viewBox="0 0 18 19"
@@ -107,530 +84,72 @@
                                 <button type="button" class="button-btn">
 
 
-                                    <img src="img/catalog/check.svg" alt="icon"
+                                    <img src="{{asset("img/catalog/check.svg")}}" alt="icon"
                                          class="absolute top-[10px] right-[15px]">
                                 </button>
                                 <button type="button" class="button-btn-cross hidden">
-                                    <img src="img/catalog/cross-01.svg" alt="icon"
+                                    <img src="{{asset("img/catalog/cross-01.svg")}}" alt="icon"
                                          class="absolute top-[15px] right-[15px] ">
                                 </button>
-
-
-                            </form>
+                            </div>
                             <!-- -------------------выпадашка основная ---------------------------------- -->
                             <div
                                 class="hidden border rounded-lg border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800 focus:ring-primary-500 focus:border-primary-500 block     w-fulldark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 pt-4 py-1 box-search  h-[220px] overflow-auto">
                                 <p class="mb-3 pl-4 text-sm text-gray-900 font-semibold ">Search suggestion</p>
-                                <!-- ---------- 1 ---------- -->
-                                <div class="relative  mb-3 pl-[42px] pr-[36px] ">
-
-                                    <img src="img/catalog/search.svg" alt="icon" class="absolute top-[3px] left-[17px]">
-
-
-                                    <label data-v-e1="" class="flex items-center relative inp-make">
+                                @foreach($data_models as $key=>$item_list)
+                                    <div class="relative  mb-3 pl-[42px] pr-[36px] ">
+                                        <img src="{{asset("img/catalog/search.svg")}}" alt="icon"
+                                             class="absolute top-[3px] left-[17px]">
+                                        <label data-v-e1="" class="flex items-center relative inp-make">
                                                         <span data-v-e1=""
                                                               class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer">
-                                                            Audi
+                                                           {{$key}}
                                                         </span>
-                                        <span data-v-e1=""
-                                              class="filter-selection-checkbox absolute right-[0px] top-[5px]">
+                                            <span data-v-e1=""
+                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
                                                             <span data-v-2fd0448e="" data-v-e1="">
                                                                 <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                       type="checkbox" value="[object Object]">
+                                                                       type="checkbox" value="{{$key}}"
+                                                                       name="make"
+                                                                >
                                                                 <span data-v-2fd0448e="" class="cursor-pointer ">
 
                                                                 </span>
                                                             </span>
                                                         </span>
-                                    </label>
-
-
-                                </div>
-                                <!-- выпадашка с чеками -->
-                                <div class="hidden check-make mb-3 pl-[25px]">
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
+                                        </label>
+                                    </div>
+                                    <!-- выпадашка с чеками -->
+                                    <div class="hidden check-make mb-3 pl-[25px]">
+                                        @foreach($item_list as $item)
+                                            <div class="items-center  pl-[36px] pr-[36px] relative mb-3">
+                                                <div>
+                                                    <img src="{{asset("img/catalog/arrow-right.svg")}}"
+                                                         alt="arrow-right-icon"
+                                                         class="mr-2 absolute top-[6px] left-[17px] ">
+                                                </div>
+                                                <label data-v-e1="" class="flex items-center justify-between relative">
                                                             <span data-v-e1=""
                                                                   class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
+                                                                {{$item}}
                                                             </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
+                                                    <span data-v-e1=""
+                                                          class="filter-selection-checkbox absolute right-[0px] top-[5px]">
                                                                 <span data-v-2fd0448e="" data-v-e1="">
                                                                     <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
+                                                                           type="checkbox" value="{{$item}}"
+                                                                           name="model">
+                                                                    <span data-v-2fd0448e=""
+                                                                          class="cursor-pointer "></span>
                                                                 </span>
                                                             </span>
-                                        </label>
-
+                                                </label>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- ---------- 2 ---------- -->
-                                <div class="relative  mb-3 pl-[42px] pr-[36px] ">
-
-                                    <img src="img/catalog/search.svg" alt="icon" class="absolute top-[3px] left-[17px]">
-
-
-                                    <label data-v-e1="" class="flex items-center relative inp-make">
-                                                        <span data-v-e1=""
-                                                              class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer">
-                                                            Audi
-                                                        </span>
-                                        <span data-v-e1=""
-                                              class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                            <span data-v-2fd0448e="" data-v-e1="">
-                                                                <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                       type="checkbox" value="[object Object]">
-                                                                <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                    </label>
-
-
-                                </div>
-                                <!-- выпадашка с чеками -->
-                                <div class="hidden check-make mb-3 pl-[25px]">
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- --------- 3 ----------- -->
-                                <div class="relative  mb-3 pl-[42px] pr-[36px] ">
-
-                                    <img src="img/catalog/search.svg" alt="icon" class="absolute top-[3px] left-[17px]">
-                                    <label data-v-e1="" class="flex items-center relative inp-make">
-                                                        <span data-v-e1=""
-                                                              class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer">
-                                                            Audi
-                                                        </span>
-                                        <span data-v-e1=""
-                                              class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                            <span data-v-2fd0448e="" data-v-e1="">
-                                                                <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                       type="checkbox" value="[object Object]">
-                                                                <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                    </label>
-
-
-                                </div>
-                                <!-- выпадашка с чеками -->
-                                <div class="hidden check-make mb-3 pl-[25px]">
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- --------- 4 ----------- -->
-                                <div class="relative  mb-3 pl-[42px] pr-[36px] ">
-
-                                    <img src="img/catalog/search.svg" alt="icon" class="absolute top-[3px] left-[17px]">
-
-
-                                    <label data-v-e1="" class="flex items-center relative inp-make">
-                                                        <span data-v-e1=""
-                                                              class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer">
-                                                            Audi
-                                                        </span>
-                                        <span data-v-e1=""
-                                              class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                            <span data-v-2fd0448e="" data-v-e1="">
-                                                                <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                       type="checkbox" value="[object Object]">
-                                                                <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                    </label>
-
-
-                                </div>
-
-                                <!-- выпадашка с чеками -->
-                                <div class="hidden check-make mb-3 pl-[25px]">
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    <div class="items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- --------- 4 ----------- -->
-                                <div class="relative  mb-3 pl-[42px] pr-[36px] ">
-
-                                    <img src="img/catalog/search.svg" alt="icon" class="absolute top-[3px] left-[17px]">
-
-
-                                    <label data-v-e1="" class="flex items-center relative inp-make">
-                                                        <span data-v-e1=""
-                                                              class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer">
-                                                            Audi
-                                                        </span>
-                                        <span data-v-e1=""
-                                              class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                            <span data-v-2fd0448e="" data-v-e1="">
-                                                                <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                       type="checkbox" value="[object Object]">
-                                                                <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                    </label>
-
-
-                                </div>
-                                <!-- выпадашка с чеками -->
-                                <div class="hidden check-make mb-3 pl-[25px]">
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    <div class="  items-center  pl-[36px] pr-[36px] relative mb-3">
-                                        <div>
-                                            <img src="img/catalog/arrow-right.svg" alt="arrow-right-icon"
-                                                 class="mr-2 absolute top-[6px] left-[17px] ">
-                                        </div>
-                                        <label data-v-e1="" class="flex items-center justify-between relative">
-                                                            <span data-v-e1=""
-                                                                  class="text-sm font-normal text-primary-500 dark:text-gray-300 cursor-pointer ">
-                                                                SQ8
-                                                            </span>
-                                            <span data-v-e1=""
-                                                  class="filter-selection-checkbox absolute right-[0px] top-[5px]">
-                                                                <span data-v-2fd0448e="" data-v-e1="">
-                                                                    <input class="h-[16px] w-[16px]" data-v-2fd0448e=""
-                                                                           type="checkbox" value="[object Object]">
-                                                                    <span data-v-2fd0448e="" class="cursor-pointer ">
-
-                                                                    </span>
-                                                                </span>
-                                                            </span>
-                                        </label>
-
-                                    </div>
-                                </div>
-
-
+                                @endforeach
                             </div>
-
-
                         </div>
-
-
                         <!-- range -->
                         <div class="w-[90%] mx-auto">
                             <p class="text-sm font-medium text-gray-900 mb-[15px]">Model year</p>
@@ -639,11 +158,13 @@
                                 <div>
                                     <p class=" mb-[8px] text-sm font-medium text-gray-900">From</p>
                                     <input type="text" id="min-value"
+                                           name="min-year"
                                            class="flex text-sm font-normal text-gray-500 rounded-[8px] py-[8px] px-[16px] border border-solid border-gray-300 bg-gray-50 mx-auto w-full md:w-[142px">
                                 </div>
                                 <div class="">
                                     <p class=" mb-[8px] text-sm font-medium text-gray-900 ">To</p>
                                     <input type="text" id="max-value"
+                                           name="max-year"
                                            class="flex text-sm font-normal text-gray-500 rounded-[8px] py-[8px] px-[16px] border border-solid border-gray-300 bg-gray-50 mx-auto w-full md:w-[142px">
                                 </div>
 
@@ -789,26 +310,28 @@
                             </h2>
                             <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
                                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-
                                     <!-- checkbox -->
-                                    @foreach($all_conditions as $item)
-                                        <div class="block items-center mt-[-10px]">
-                                            <input id="checked-checkbox-2" type="checkbox" value=""
+                                    @foreach($list_filters['runs_drive'] as $item)
+                                        <div class="block items-center mt-[-10px]"
+                                             onclick="">
+                                            <input id="checked-checkbox-{{$item->id}}"
+                                                   type="checkbox"
+                                                   name="runs_drive_id[]"
+                                                   value="{{$item->id}}"
                                                    class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer ">
-                                            <label for="checked-checkbox-2"
+                                            <label for="checked-checkbox-{{$item->id}}"
                                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer block relative top-[-23px] right-[-19px]">
-                                                {{$item->alias}} (62)
+                                                {{$item->name}}
                                             </label>
                                         </div>
                                     @endforeach
-                                    <div>
-                                        <a href="#"
-                                           class="text-sm font-medium text-primary-600 hover:text-primary-800 ">View
-                                            all</a>
-                                    </div>
+                                    {{--                                    <div>--}}
+                                    {{--                                        <a href="#"--}}
+                                    {{--                                           class="text-sm font-medium text-primary-600 hover:text-primary-800 ">View--}}
+                                    {{--                                            all</a>--}}
+                                    {{--                                    </div>--}}
                                 </div>
                             </div>
-
 
                             <!-- Damage -->
 
@@ -828,11 +351,12 @@
                             </h2>
                             <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
                                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    @foreach($all_damage as $item)
+                                    @foreach($list_filters['damage'] as $item)
                                         <div class="block items-center mt-[-10px]">
-                                            <input id="checked-checkbox-2" type="checkbox" value=""
+                                            <input id="damage-checked-checkbox-{{$item->id}}" type="checkbox"
+                                                   value="{{$item->id}}" name="damage_id[]"
                                                    class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer ">
-                                            <label for="checked-checkbox-2"
+                                            <label for="damage-checked-checkbox-{{$item->id}}"
                                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer block relative top-[-23px] right-[-19px]">
                                                 {{$item->name}} (62)
                                             </label>
@@ -859,11 +383,12 @@
                             </h2>
                             <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
                                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    @foreach($all_fuel_type as $item)
+                                    @foreach($list_filters['fuel'] as $item)
                                         <div class="block items-center mt-[-10px]">
-                                            <input id="checked-checkbox-2" type="checkbox" value=""
+                                            <input id="fuel-checked-checkbox-{{$item->id}}" type="checkbox"
+                                                   value="{{$item->id}}" name="fuel_id[]"
                                                    class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer ">
-                                            <label for="checked-checkbox-2"
+                                            <label for="fuel-checked-checkbox-{{$item->id}}"
                                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer block relative top-[-23px] right-[-19px]">
                                                 {{$item->name}} (62)
                                             </label>
@@ -872,9 +397,7 @@
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
+                    </form>
 
 
                     <!-- right column -->
@@ -885,46 +408,129 @@
                             class="flex items-center justify-end  md1:justify-between mb-[12px] mr-[12px] md:pr-[12px] w-full">
 
                             <!-- Breadcrumb -->
-                            <nav class="hidden md1:flex ml-[13px] " aria-label="Breadcrumb">
-                                <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                                    <li class="inline-flex items-center">
-                                        <a href="#"
-                                           class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white ">
-                                            <svg class="w-3 h-3 mr-2.5" aria-hidden="true"
-                                                 xmlns="http://www.w3.org/2000/svg"
-                                                 fill="currentColor" viewBox="0 0 20 20">
+                            <div class="relative">
+                                <nav
+                                    class="hidden md1:flex items-center rounded-lg border border-gray-200 bg-white px-2 lg:px-5 py-[6px]  "
+                                    aria-label="Breadcrumb">
+                                    <ol class="inline-flex items-center gap-4 ">
+                                        <li class="hidden lg:flex items-center gap-4">
+                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
-                                                    d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                                                    d="M10.707 2.793C10.5195 2.60553 10.2652 2.50021 10 2.50021C9.73484 2.50021 9.48053 2.60553 9.293 2.793L2.293 9.793C2.11084 9.9816 2.01005 10.2342 2.01233 10.4964C2.01461 10.7586 2.11978 11.0094 2.30518 11.1948C2.49059 11.3802 2.7414 11.4854 3.0036 11.4877C3.2658 11.49 3.5184 11.3892 3.707 11.207L4 10.914V17.5C4 17.7652 4.10536 18.0196 4.2929 18.2071C4.48043 18.3946 4.73479 18.5 5 18.5H7C7.26522 18.5 7.51957 18.3946 7.70711 18.2071C7.89465 18.0196 8 17.7652 8 17.5V15.5C8 15.2348 8.10536 14.9804 8.2929 14.7929C8.48043 14.6054 8.73479 14.5 9 14.5H11C11.2652 14.5 11.5196 14.6054 11.7071 14.7929C11.8946 14.9804 12 15.2348 12 15.5V17.5C12 17.7652 12.1054 18.0196 12.2929 18.2071C12.4804 18.3946 12.7348 18.5 13 18.5H15C15.2652 18.5 15.5196 18.3946 15.7071 18.2071C15.8946 18.0196 16 17.7652 16 17.5V10.914L16.293 11.207C16.4816 11.3892 16.7342 11.49 16.9964 11.4877C17.2586 11.4854 17.5094 11.3802 17.6948 11.1948C17.8802 11.0094 17.9854 10.7586 17.9877 10.4964C17.99 10.2342 17.8892 9.9816 17.707 9.793L10.707 2.793Z"
+                                                    fill="#374151"/>
                                             </svg>
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="flex items-center">
-                                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                      stroke-linejoin="round"
-                                                      stroke-width="2" d="m1 9 4-4-4-4"/>
-                                            </svg>
-                                            <a href="#"
-                                               class="ml-1 text-sm font-medium text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-400 dark:hover:text-white ">Mercedes-Benz</a>
-                                        </div>
-                                    </li>
-                                    <li aria-current="page">
-                                        <div class="flex items-center">
-                                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                      stroke-linejoin="round"
-                                                      stroke-width="2" d="m1 9 4-4-4-4"/>
-                                            </svg>
-                                            <span
-                                                class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">AMG</span>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </nav>
+                                            <div class="flex items-center">
+                                                <a href="#"
+                                                   class=" text-sm font-medium text-gray-700 hover:text-blue-600  dark:text-gray-400 dark:hover:text-white">Catalog</a>
+                                            </div>
+                                        </li>
+                                        <!--  -->
+                                        @if($breadcrumbs)
+                                            <li data-dropdow-2 aria-current="page" class="relative">
+                                                <div class="flex items-center gap-4">
+                                                    <svg class="hidden lg:flex w-3 h-3  text-gray-400"
+                                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                         fill="none" viewBox="0 0 6 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                              stroke-linejoin="round" stroke-width="2"
+                                                              d="m1 9 4-4-4-4"/>
+                                                    </svg>
+                                                    <button data-dropdow type="button"
+                                                            class=" text-sm font-medium -gray-700 dark:text-gray-400">{{$breadcrumbs[0]->make_name}}</button>
+                                                    <button data-dropdow type="button"
+                                                            class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
+                                                        +4
+                                                    </button>
+                                                    <button data-dropdow type="button">
+                                                        <svg width="30" height="30" viewBox="0 0 20 21" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                  d="M5.293 7.79299C5.48053 7.60552 5.73484 7.5002 6 7.5002C6.26516 7.5002 6.51947 7.60552 6.707 7.79299L10 11.086L13.293 7.79299C13.3852 7.69748 13.4956 7.6213 13.6176 7.56889C13.7396 7.51648 13.8708 7.48889 14.0036 7.48774C14.1364 7.48659 14.2681 7.51189 14.391 7.56217C14.5139 7.61245 14.6255 7.6867 14.7194 7.78059C14.8133 7.87449 14.8875 7.98614 14.9378 8.10904C14.9881 8.23193 15.0134 8.36361 15.0123 8.49639C15.0111 8.62917 14.9835 8.76039 14.9311 8.88239C14.8787 9.0044 14.8025 9.11474 14.707 9.20699L10.707 13.207C10.5195 13.3945 10.2652 13.4998 10 13.4998C9.73484 13.4998 9.48053 13.3945 9.293 13.207L5.293 9.20699C5.10553 9.01946 5.00021 8.76515 5.00021 8.49999C5.00021 8.23483 5.10553 7.98052 5.293 7.79299Z"
+                                                                  fill="#9CA3AF"/>
+                                                        </svg>
+                                                    </button>
+
+                                                </div>
+                                                <!-- выпадашка -->
+
+                                                <div id="item-2"
+                                                     class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb ">
+                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                                        <li>
+                                                            <a href="#"
+                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New
+                                                                branch</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"
+                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rename</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"
+                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <!--  -->
+                                            <li data-dropdow-1 aria-current="page" class="relative">
+                                                <div class="flex items-center gap-4">
+
+                                                    <button data-dropdow type="button"
+                                                            class=" text-sm font-medium text-gray-500  dark:text-gray-400">
+                                                        {{$breadcrumbs[0]->name}}
+                                                    </button>
+
+
+                                                    <button data-dropdow
+                                                            class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
+
+                                                        +7
+
+
+                                                    </button>
+
+                                                    <button data-dropdow type="button">
+                                                        <svg width="30" height="30" viewBox="0 0 20 21" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                  d="M5.293 7.79299C5.48053 7.60552 5.73484 7.5002 6 7.5002C6.26516 7.5002 6.51947 7.60552 6.707 7.79299L10 11.086L13.293 7.79299C13.3852 7.69748 13.4956 7.6213 13.6176 7.56889C13.7396 7.51648 13.8708 7.48889 14.0036 7.48774C14.1364 7.48659 14.2681 7.51189 14.391 7.56217C14.5139 7.61245 14.6255 7.6867 14.7194 7.78059C14.8133 7.87449 14.8875 7.98614 14.9378 8.10904C14.9881 8.23193 15.0134 8.36361 15.0123 8.49639C15.0111 8.62917 14.9835 8.76039 14.9311 8.88239C14.8787 9.0044 14.8025 9.11474 14.707 9.20699L10.707 13.207C10.5195 13.3945 10.2652 13.4998 10 13.4998C9.73484 13.4998 9.48053 13.3945 9.293 13.207L5.293 9.20699C5.10553 9.01946 5.00021 8.76515 5.00021 8.49999C5.00021 8.23483 5.10553 7.98052 5.293 7.79299Z"
+                                                                  fill="#9CA3AF"/>
+                                                        </svg>
+                                                    </button>
+
+                                                </div>
+                                                <!-- выпадашка -->
+
+                                                <div id="item-1"
+                                                     class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb">
+                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                                        <li>
+                                                            <a href="#"
+                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New
+                                                                branch</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"
+                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rename</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"
+                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    </ol>
+
+
+                                </nav>
+
+
+                            </div>
 
                             <!-- Dropdown btn mobile do 768px -->
 
@@ -982,16 +588,12 @@
                                     </ul>
                                 </div>
                             </div>
-
-
                         </div>
 
-
                         <!-- catalog car -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px] mb-[37px]">
-                            @foreach($data_card as $key=>$item_card)
-                                @include("components.car_card")
-                            @endforeach
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px] mb-[37px] car_card_lis">
+                            @include('components.catalog.car_card_list')
+
                         </div>
                         <!-- pagination -->
                         @include("components.catalog.pagination")
@@ -1029,12 +631,64 @@
                     digital instrument cluster that allows drivers to customize the information displayed, including
                     navigation maps and vehicle performance data.
                 </p>
-
-
             </div>
         </div>
     </div>
 @stop
 @section("script")
-    <script src="js/catalog-script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        // $(function () {
+        //     $('.filter_car_form').change(function (e) {
+        //         var $form = $(this);
+        //         $.ajax({
+        //             type: $form.attr('method'),
+        //             url: $form.attr('action'),
+        //             headers: {
+        //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //             },
+        //             data: $form.serialize()
+        //         }).done(function (data) {
+        //             history.pushState({}, "", "/catalog?page=5");
+        //             document.querySelector('.car_card_lis').innerHTML = data
+        //         }).fail(function () {
+        //             console.log('fail');
+        //         });
+        //         //отмена действия по умолчанию для кнопки submit
+        //         e.preventDefault();
+        //     });
+        // });
+        $(function () {
+            $('.filter_car_form').change(function (e) {
+                var $form = $(this);
+                filter_car_form(e, $form);
+            });
+        });
+
+        function filter_car_form(e, $form) {
+            var startTime = performance.now(); // Записываем начальное время
+            var url = $form.attr('action'); // Получить текущий URL из формы
+            var formData = $form.serialize(); // Получить отправленные атрибуты формы
+            $.ajax({
+                type: $form.attr('method'),
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: formData
+            }).done(function (data) {
+                var newURL = "catalog" + "?" + formData;
+                history.pushState({}, "", newURL);
+                document.querySelector('.car_card_lis').innerHTML = data;
+
+                var endTime = performance.now(); // Записываем время завершения запроса
+                var executionTime = endTime - startTime; // Вычисляем время выполнения запроса
+                console.log('Запрос выполнен за ' + executionTime + ' миллисекунд');
+            }).fail(function () {
+                console.log('fail');
+            });
+            e.preventDefault();
+        }
+    </script>
+    <script src="{{asset("js/catalog-script.js")}}"></script>
 @stop

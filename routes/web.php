@@ -22,3 +22,5 @@ Route::get('/auto_pop', [PageController::class, "auto_pop"])->name("page.auto_po
 
 Route::post("/catalog_filter", [CatalogController::class, "catalog_filter"])->name("catalog.filter");
 
+Route::get('/search', [PageController::class, "search"])->name('search');
+Route::get('/test', [PageController::class, "test"])->name('test');

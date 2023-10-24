@@ -22,6 +22,7 @@ a:active {
     width: 100%;
     height: 8px;
     background-color: white;
+    /* transform: translate(13px,0%); 
     /* Белый цвет фона */
 }
 
@@ -55,6 +56,7 @@ a:active {
     right: -17px;
     top: -6px;
 }
+
 
 /* -------------------------------------------- бегущая строка ----------------------------------------------- */
 
@@ -323,8 +325,19 @@ overflow: hidden;
 
  /* ---  -----    серий фон в активном состоянии на страничке аккаунт на аккордионах------------ */
 
- .button-accordion {
-    padding: 6px 8px;
-    border-radius: 8px;
-    background:  #2964d9;
- }
+.button-accordion {
+    /* padding: 6px 8px 6px 8px; */
+    background: #F3F4F6 !important;
+    border-radius: 6px;
+}
+.but-icon {
+    fill: #000;
+    transform: translate(0,-3px);
+    
+}
+
+/* класы на выпадашки в крошках */
+
+.none-breadcrumb {
+    display: none;
+}

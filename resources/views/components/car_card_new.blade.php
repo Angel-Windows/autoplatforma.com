@@ -3,7 +3,6 @@
 $class_color = "bg-red-600";
 $uppercase = "uppercase";
 $is_recommended = false;
-
 ?>
 <?php
 if (!($item_card->id & 1)) {
