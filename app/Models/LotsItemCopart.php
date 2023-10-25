@@ -15,6 +15,8 @@ use \Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static find(int $int)
  * @method static orderBy(string $string, string $string1)
  * @method static select(string $string)
+ * @method static min(string $string)
+ * @method static max(string $string)
  */
 class LotsItemCopart extends Model
 {
