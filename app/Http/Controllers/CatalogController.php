@@ -118,6 +118,19 @@ class CatalogController extends Controller
         if ($request->has('model_id')) {
             $data_card = $this->is_array_input($request, $data_card, 'model_id');
         }
+        if ($request->has('auction_status')) {
+            $data_now = date('Y-m-d H:i:s');
+            switch ($request->input('auction_status')){
+                case 1:
+                    $data_card = $data_card->where('date_sale', ">", $data_now);
+                    break;
+                case 2:
+                    $data_card = $data_card->where('date_sale', "<", $data_now);
+                    break;
+            }
+
+
+        }
 
         if ($request->has('conditions')) {
             $this->joinFilters($request, $data_card, 'conditions', 'runs_drive_id');

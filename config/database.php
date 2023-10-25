@@ -62,7 +62,17 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
+        'second_db' => [
+            'driver' => env('SECOND_DB_CONNECTION', 'mysql'),
+            'host' => env('SECOND_DB_HOST', '127.0.0.1'),
+            'port' => env('SECOND_DB_PORT', '3306'),
+            'database' => env('SECOND_DB_DATABASE', 'forge'),
+            'username' => env('SECOND_DB_USERNAME', 'forge'),
+            'password' => env('SECOND_DB_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+        ],
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

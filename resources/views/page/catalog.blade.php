@@ -182,19 +182,20 @@
                                 <div>
                                     <img src="img/catalog/information-circle.svg" alt="information-circle">
                                 </div>
+                                <input id="auction_status" type="hidden" name="auction_status" value="">
                             </div>
                             <!-- табы -->
 
                             <div class="tabu-body__nav flex gap-3 justify-between">
-                                <button type="button" class="tabu-body__item text-primary-600 bg-white border          border-primary-600
+                                <button onclick="changeAuctionStatus()" type="button" class="tabu-body__item text-primary-600 bg-white border          border-primary-600
                                                      text-sm font-medium rounded-lg  px-5 py-[8px]   w-[90px] text-center"
                                         data-tab="tab-1">All
                                 </button>
-                                <button type="button" class="tabu-body__item text-primary-600 bg-white border _activ border-primary-600
+                                <button onclick="changeAuctionStatus(1)" type="button" class="tabu-body__item text-primary-600 bg-white border _activ border-primary-600
                                                      text-sm font-medium rounded-lg  px-5 py-[8px]   w-[90px] text-center"
                                         data-tab="tab-2">Live
                                 </button>
-                                <button type="button" class="tabu-body__item text-primary-600 bg-white border          border-primary-600
+                                <button onclick="changeAuctionStatus(2)" type="button" class="tabu-body__item text-primary-600 bg-white border          border-primary-600
                                                      text-sm font-medium rounded-lg  px-5 py-[8px]   w-[90px] text-center"
                                         data-tab="tab-3">Sold
                                 </button>
@@ -584,38 +585,9 @@
         //         e.preventDefault();
         //     });
         // });
-        $(function () {
-            $('.filter_car_form').change(function (e) {
-                var $form = $(this);
-                filter_car_form(e, $form);
-            });
-        });
 
-        function filter_car_form(e, $form) {
-            var startTime = performance.now(); // Записываем начальное время
-            var url = $form.attr('action'); // Получить текущий URL из формы
-            var formData = $form.serialize(); // Получить отправленные атрибуты формы
-            $.ajax({
-                type: $form.attr('method'),
-                url: url,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: formData
-            }).done(function (data) {
-                var newURL = "catalog" + "?" + formData;
-                history.pushState({}, "", newURL);
-                document.querySelector('.car_card_lis').innerHTML = data;
-
-                var endTime = performance.now(); // Записываем время завершения запроса
-                var executionTime = endTime - startTime; // Вычисляем время выполнения запроса
-                console.log('Запрос выполнен за ' + executionTime + ' миллисекунд');
-            }).fail(function () {
-                console.log('fail');
-            });
-            e.preventDefault();
-        }
     </script>
     <script src="{{asset('js/main-js.js')}}"></script>
     <script src="{{asset("js/catalog-script.js")}}"></script>
+    <script src="{{asset("js/filter.js")}}"></script>
 @stop

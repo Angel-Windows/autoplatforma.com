@@ -19,11 +19,13 @@ class PageController extends Controller
 
     public function home()
     {
+        $date_now = date("Y-m-d H:i:s"); // Получение текущей даты и времени
         $data_card = LotsItemCopart::limit(12)
             ->get();
 
         return view("page.home")
-            ->with("data_card", $data_card);
+            ->with("data_card", $data_card)
+            ->with("date_now", $date_now);
     }
 
     public function blog()
