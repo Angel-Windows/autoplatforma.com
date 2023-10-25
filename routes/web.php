@@ -16,7 +16,7 @@ use App\Http\Controllers\CatalogController;
 
 Route::get('/', [PageController::class, "index"])->name("page.index");
 Route::get('/home', [PageController::class, "home"])->name("page.home");
-Route::get('/catalog', [PageController::class, "catalog"])->name("page.catalog");
+Route::get('/catalog', [CatalogController::class, "catalog"])->name("page.catalog");
 Route::get('/blog', [PageController::class, "blog"])->name("page.blog");
 Route::get('/auto_pop', [PageController::class, "auto_pop"])->name("page.auto_pop");
 

@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attachments;
-use App\Models\LotDamage;
-use App\Models\LotFuel;
 use App\Models\LotMakes;
 use App\Models\LotModels;
-use App\Models\LotRunsDrive;
 use App\Models\LotsItemCopart;
 use Illuminate\Http\Request;
 use DB;
@@ -27,159 +24,6 @@ class PageController extends Controller
 
         return view("page.home")
             ->with("data_card", $data_card);
-    }
-
-    public function catalog(Request $request)
-    {
-
-        $date_now = date("Y-m-d H:i:s");
-        $runs_drive_id_list = LotsItemCopart::select('runs_drive_id')->distinct()->get();
-        $damage_id_list = LotsItemCopart::select('damage_id', 'damage2_id')->distinct('damage_id', 'damage2_id')->get();
-        $fuel_id_list = LotsItemCopart::select('fuel_id')->distinct('fuel_id')->get();
-
-        $data_models_db = DB::table("lot_models")->leftJoin("lot_makes", "lot_makes.id", "lot_models.make_id")
-            ->select("lot_models.name", "lot_makes.name as lot_makes_name")
-            ->get();
-        $data_models = [];
-        foreach ($data_models_db as $item) {
-            $data_models[$item->lot_makes_name][] = $item->name;
-        }
-
-        $all_damage = LotDamage::all();
-        $all_fuel_type = LotFuel::all();
-        $time_line = [
-            "min" => LotsItemCopart::orderBy("year", 'asc')->first()->year,
-            "max" => LotsItemCopart::orderBy("year", 'desc')->first()->year
-        ];
-
-        $list_filters_id = [];
-        foreach ($damage_id_list as $item) {
-            $list_filters_id['damage'][] = $item->damage_id;
-            $list_filters_id['damage'][] = $item->damage2_id;
-        }
-        foreach ($fuel_id_list as $item) {
-            $list_filters_id['fuel'][] = $item->fuel_id;
-        }
-        foreach ($runs_drive_id_list as $item) {
-            $list_filters_id['runs_drive'][] = $item->runs_drive_id;
-        }
-
-
-        $list_filters = [];
-        $list_filters["damage"] = LotDamage::whereIn("id", $list_filters_id['damage'])->select("name", 'id')->get();
-        $list_filters["fuel"] = LotFuel::whereIn("id", $list_filters_id['fuel'])->select("name", 'id')->get();
-        $list_filters["runs_drive"] = LotRunsDrive::whereIn("id", $list_filters_id['runs_drive'])->select("name", 'id')->get();
-
-        $lotDrive = LotRunsDrive::all();
-        foreach ($lotDrive as $item) {
-            $data_filter[] = $item->id;
-        }
-
-        $data_card = $this->find_filters($request);
-
-        $breadcrumbs = null;
-
-        if ($request->has('model_id')) {
-            $breadcrumbs = LotModels::
-                leftJoin("lot_makes", "lot_makes.id", "lot_models.make_id");
-            $breadcrumbs = $this->is_array_input($request, $breadcrumbs, 'model_id', 'lot_models.id');
-            $breadcrumbs = $breadcrumbs
-                ->select("lot_models.*", 'lot_makes.name as make_name')
-                ->limit(10)
-                ->get();
-
-        }
-//        dd($breadcrumbs);
-        $page_active = $request->input("page") ?? 1;
-        $page_count = $data_card->lastPage();
-
-        return view("page.catalog")
-            ->with("breadcrumbs", $breadcrumbs)
-            ->with("date_now", $date_now)
-            ->with("data_models", $data_models)
-            ->with("list_filters", $list_filters)
-            ->with("data_card", $data_card)
-            ->with("page_active", $page_active)
-            ->with("all_damage", $all_damage)
-            ->with("all_fuel_type", $all_fuel_type)
-            ->with("time_line", $time_line)
-            ->with("runs_drive_id_list", $runs_drive_id_list)
-            ->with("page_count", $page_count);
-    }
-
-    private function sort_result($request)
-    {
-        $sort_type = $request ?? 0;
-        $sort = [
-            "table" => "id",
-            "sort_by" => 'ASC'
-        ];
-
-        switch ($sort_type) {
-            case 1:
-                $sort["table"] = "year";
-                break;
-            case 2:
-                $sort["table"] = "price_bid";
-                break;
-            case 3:
-                $sort["table"] = "price_bid";
-                $sort["sort_by"] = "desc";
-                break;
-        }
-        return $sort;
-    }
-
-    private function is_array_input($request, $data_card, $input_column, $where_column = null)
-    {
-        $input = $request->input($input_column) ?? null;
-        if ($input) {
-            if (is_array($input)) {
-                return $data_card->whereIn($where_column ?? $input_column, $input);
-            } else {
-                return $data_card->where($where_column ?? $input_column, $input);
-            }
-        } else {
-            return $data_card;
-        }
-    }
-
-    private function find_filters($request)
-    {
-
-//        $sort = $this->sort_result($request->input("sort"));
-        $data_card = LotsItemCopart::orderBy('id');
-
-        if ($request->has('max-year')) {
-            $data_card = $data_card->where('year', "<", $request->input('max-year'));
-        }
-        if ($request->has('min-year')) {
-            $data_card = $data_card->where('year', ">", $request->input('min-year'));
-        }
-        if ($request->has('runs_drive_id')) {
-            $data_card = $data_card->whereIn('runs_drive_id', $request->input('runs_drive_id'));
-        }
-        if ($request->has('damage_id')) {
-            $data_card = $data_card->whereIn('damage_id', $request->input('damage_id'));
-        }
-        if ($request->has('fuel_id')) {
-            $data_card = $data_card->whereIn('fuel_id', $request->input('fuel_id'));
-        }
-        if ($request->has('make_id')) {
-//            if (!is_array($request->input('make_id'))) {
-//                $data_make = [$request->input('make_id')];
-//            } else {
-//                $data_make = $request->input('make_id');
-//
-//            }
-//            $data_card = $data_card->whereIn('make_id', $data_make);
-            $data_card = $this->is_array_input($request, $data_card, 'make_id');
-        }
-        if ($request->has('model_id')) {
-            $data_card = $this->is_array_input($request, $data_card, 'model_id');
-        }
-
-        return $data_card->paginate(12);
     }
 
     public function blog()
@@ -296,8 +140,9 @@ class PageController extends Controller
                 $data_recommended_cars[] = $item;
             }
         }
-
+        $date_now = date("Y-m-d H:i:s");
         return view("page.auto_pop")
+            ->with("date_now", $date_now)
             ->with('car', $car)
             ->with('data_detailed_information_one', $data_detailed_information_one)
             ->with('data_detailed_information_two', $data_detailed_information_two)

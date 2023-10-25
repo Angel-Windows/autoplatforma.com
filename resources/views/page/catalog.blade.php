@@ -151,9 +151,11 @@
                             </div>
                         </div>
                         <!-- range -->
-                        <div class="w-[90%] mx-auto">
+                        <div class="flex flex-col ">
                             <p class="text-sm font-medium text-gray-900 mb-[15px]">Model year</p>
-                            <div id="slider" class=" h-[8px] mb-[12px]"></div>
+                            <div class="pl-3 pr-5">
+                                <div id="slider" class="   mb-[12px]"></div>
+                            </div>
                             <div class="flex justify-between w-full gap-[12px]">
                                 <div>
                                     <p class=" mb-[8px] text-sm font-medium text-gray-900">From</p>
@@ -205,7 +207,7 @@
                         <!-- accordion -->
                         <div id="accordion-flush" data-accordion="collapse"
                              data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                             data-inactive-classes="text-gray-500 dark:text-gray-400">
+                             data-inactive-classes="text-gray-500 dark:text-gray-400" class="mb-4">
                             <!-- Auction -->
 
                             <h2 id="accordion-flush-heading-1">
@@ -222,15 +224,15 @@
                                     </svg>
                                 </button>
                             </h2>
-                            <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                            <div id="accordion-flush-body-1" class="hidden">
                                 <div class="py-5 border-b border-gray-200 dark:border-gray-700">
                                     <!-- тогле -->
                                     <div class="mb-[12px] relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
                                             <input type="checkbox" value="" class="sr-only peer">
-                                            <div
+                                            <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
-                                            </div>
+                                                    </span>
 
                                         </label>
                                         <div class="absolute top-[-4px] left-[56px]">
@@ -245,9 +247,9 @@
                                     <div class="mb-[12px] relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
                                             <input type="checkbox" value="" class="sr-only peer">
-                                            <div
+                                            <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
-                                            </div>
+                                                        </span>
 
                                         </label>
                                         <div class="absolute top-[-4px] left-[56px]">
@@ -261,9 +263,9 @@
                                     <div class="mb-[12px] relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
                                             <input type="checkbox" value="" class="sr-only peer">
-                                            <div
+                                            <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
-                                            </div>
+                                                            </span>
 
                                         </label>
                                         <div class="absolute top-[-4px] left-[56px]">
@@ -277,9 +279,9 @@
                                     <div class=" relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
                                             <input type="checkbox" value="" class="sr-only peer">
-                                            <div
+                                            <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
-                                            </div>
+                                                    </span>
 
                                         </label>
                                         <div class="absolute top-[-4px] left-[56px]">
@@ -292,111 +294,52 @@
                                 </div>
                             </div>
 
-                            <!-- Condition -->
 
-                            <h2 id="accordion-flush-heading-2">
-                                <button type="button"
-                                        class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 text-sm "
-                                        data-accordion-target="#accordion-flush-body-2 " aria-expanded="false"
-                                        aria-controls="accordion-flush-body-2">
-                                    <span>Condition</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="M9 5 5 1 1 5"/>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    <!-- checkbox -->
-                                    @foreach($list_filters['runs_drive'] as $item)
-                                        <div class="block items-center mt-[-10px]"
-                                             onclick="">
-                                            <input id="checked-checkbox-{{$item->id}}"
-                                                   type="checkbox"
-                                                   name="runs_drive_id[]"
-                                                   value="{{$item->id}}"
-                                                   class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer ">
-                                            <label for="checked-checkbox-{{$item->id}}"
-                                                   class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer block relative top-[-23px] right-[-19px]">
-                                                {{$item->name}}
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                    {{--                                    <div>--}}
-                                    {{--                                        <a href="#"--}}
-                                    {{--                                           class="text-sm font-medium text-primary-600 hover:text-primary-800 ">View--}}
-                                    {{--                                            all</a>--}}
-                                    {{--                                    </div>--}}
-                                </div>
-                            </div>
-
-                            <!-- Damage -->
-
-                            <h2 id="accordion-flush-heading-3">
-                                <button type="button"
-                                        class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 text-sm "
-                                        data-accordion-target="#accordion-flush-body-3" aria-expanded="false"
-                                        aria-controls="accordion-flush-body-3">
-                                    <span>Damage</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="M9 5 5 1 1 5"/>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    @foreach($list_filters['damage'] as $item)
-                                        <div class="block items-center mt-[-10px]">
-                                            <input id="damage-checked-checkbox-{{$item->id}}" type="checkbox"
-                                                   value="{{$item->id}}" name="damage_id[]"
-                                                   class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer ">
-                                            <label for="damage-checked-checkbox-{{$item->id}}"
-                                                   class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer block relative top-[-23px] right-[-19px]">
-                                                {{$item->name}} (62)
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-
-                            <!-- Fuel type -->
-
-                            <h2 id="accordion-flush-heading-4">
-                                <button type="button"
-                                        class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 text-sm "
-                                        data-accordion-target="#accordion-flush-body-4" aria-expanded="false"
-                                        aria-controls="accordion-flush-body-4">
-                                    <span>Fuel type</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="M9 5 5 1 1 5"/>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
-                                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                                    @foreach($list_filters['fuel'] as $item)
-                                        <div class="block items-center mt-[-10px]">
-                                            <input id="fuel-checked-checkbox-{{$item->id}}" type="checkbox"
-                                                   value="{{$item->id}}" name="fuel_id[]"
-                                                   class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer ">
-                                            <label for="fuel-checked-checkbox-{{$item->id}}"
-                                                   class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer block relative top-[-23px] right-[-19px]">
-                                                {{$item->name}} (62)
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
                         </div>
+                    @foreach($list_filters as $item_filters)
+                        <!-- condition -->
+                            <div class="rounded-lg bg-white shadow-md px-3 py-3 mb-3">
+                                <!-- елементы спойлера -->
+                                <div data-name="title" class="flex justify-between items-center cursor-pointer">
+                                    <h3 class="leading-none text-sm font-medium text-gray-900">{{$item_filters['name']}}</h3>
+                                    <div>
+                                        <img src="img/catalog/chevron-down.svg" alt="icon">
+                                    </div>
+                                </div>
+                                <div class="hidden mt-5 pr-3">
+                                    <div class="flex gap-2 items-center mb-[10px] ">
+                                        <input id="checked-checkbox-1" type="checkbox" value=""
+                                               class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer
+                                                            w-[9%]">
+                                        <svg width="12" height="12" viewBox="0 0 10 11" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg" class="w-[6%]">
+                                            <circle cx="5" cy="5.5" r="4.5" stroke="#111928"/>
+                                        </svg>
+                                        <label for="checked-checkbox-1"
+                                               class=" text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer flex justify-between w-[100%] capitalize ">
+                                            all
+                                            <span class="text-sm font-medium text-gray-400 leading-normal ">{{$item_filters['all_count'] ?? 0}}</span>
+                                        </label>
+
+                                    </div>
+                                    @foreach($item_filters['data'] as $item)
+                                        <div class="flex gap-2 items-center mb-[10px] ">
+                                            <input id="checked-checkbox-{{$item->alias}}" type="checkbox" value="{{$item->alias}}" name="{{$item_filters['name']}}[]"
+                                                   class="flex w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded  dark:ring-offset-gray-800  dark:bg-gray-700 dark:border-gray-600 cursor-pointer
+                                                            w-[9%]">
+                                            <span
+                                                class="w-[11px] h-[11px] bg-green-400 rounded-[100%] pl-[10px]"></span>
+                                            <label for="checked-checkbox-{{$item->alias}}"
+                                                   class="text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer flex justify-between w-[100%] capitalize ml-1">
+                                                {{$item->alias}}
+                                                <span
+                                                    class="text-sm font-medium text-gray-400 leading-normal">{{$item->count_of_cars ?? 0}}</span>
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
                     </form>
 
 
@@ -425,8 +368,7 @@
                                                    class=" text-sm font-medium text-gray-700 hover:text-blue-600  dark:text-gray-400 dark:hover:text-white">Catalog</a>
                                             </div>
                                         </li>
-                                        <!--  -->
-                                        @if($breadcrumbs)
+                                        @if(isset($breadcrumbs['make']))
                                             <li data-dropdow-2 aria-current="page" class="relative">
                                                 <div class="flex items-center gap-4">
                                                     <svg class="hidden lg:flex w-3 h-3  text-gray-400"
@@ -437,91 +379,75 @@
                                                               d="m1 9 4-4-4-4"/>
                                                     </svg>
                                                     <button data-dropdow type="button"
-                                                            class=" text-sm font-medium -gray-700 dark:text-gray-400">{{$breadcrumbs[0]->make_name}}</button>
-                                                    <button data-dropdow type="button"
-                                                            class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
-                                                        +4
-                                                    </button>
-                                                    <button data-dropdow type="button">
-                                                        <svg width="30" height="30" viewBox="0 0 20 21" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                  d="M5.293 7.79299C5.48053 7.60552 5.73484 7.5002 6 7.5002C6.26516 7.5002 6.51947 7.60552 6.707 7.79299L10 11.086L13.293 7.79299C13.3852 7.69748 13.4956 7.6213 13.6176 7.56889C13.7396 7.51648 13.8708 7.48889 14.0036 7.48774C14.1364 7.48659 14.2681 7.51189 14.391 7.56217C14.5139 7.61245 14.6255 7.6867 14.7194 7.78059C14.8133 7.87449 14.8875 7.98614 14.9378 8.10904C14.9881 8.23193 15.0134 8.36361 15.0123 8.49639C15.0111 8.62917 14.9835 8.76039 14.9311 8.88239C14.8787 9.0044 14.8025 9.11474 14.707 9.20699L10.707 13.207C10.5195 13.3945 10.2652 13.4998 10 13.4998C9.73484 13.4998 9.48053 13.3945 9.293 13.207L5.293 9.20699C5.10553 9.01946 5.00021 8.76515 5.00021 8.49999C5.00021 8.23483 5.10553 7.98052 5.293 7.79299Z"
-                                                                  fill="#9CA3AF"/>
-                                                        </svg>
-                                                    </button>
-
+                                                            class=" text-sm font-medium -gray-700 dark:text-gray-400">{{$breadcrumbs['model'][0]->lot_makes_name}}</button>
+                                                    @if(count($breadcrumbs['make'])>1)
+                                                        <button data-dropdow type="button"
+                                                                class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
+                                                            + {{count($breadcrumbs['make'])-1}}
+                                                        </button>
+                                                        <button data-dropdow type="button">
+                                                            <svg width="30" height="30" viewBox="0 0 20 21" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                      d="M5.293 7.79299C5.48053 7.60552 5.73484 7.5002 6 7.5002C6.26516 7.5002 6.51947 7.60552 6.707 7.79299L10 11.086L13.293 7.79299C13.3852 7.69748 13.4956 7.6213 13.6176 7.56889C13.7396 7.51648 13.8708 7.48889 14.0036 7.48774C14.1364 7.48659 14.2681 7.51189 14.391 7.56217C14.5139 7.61245 14.6255 7.6867 14.7194 7.78059C14.8133 7.87449 14.8875 7.98614 14.9378 8.10904C14.9881 8.23193 15.0134 8.36361 15.0123 8.49639C15.0111 8.62917 14.9835 8.76039 14.9311 8.88239C14.8787 9.0044 14.8025 9.11474 14.707 9.20699L10.707 13.207C10.5195 13.3945 10.2652 13.4998 10 13.4998C9.73484 13.4998 9.48053 13.3945 9.293 13.207L5.293 9.20699C5.10553 9.01946 5.00021 8.76515 5.00021 8.49999C5.00021 8.23483 5.10553 7.98052 5.293 7.79299Z"
+                                                                      fill="#9CA3AF"/>
+                                                            </svg>
+                                                        </button>
+                                                    @endif
                                                 </div>
                                                 <!-- выпадашка -->
-
-                                                <div id="item-2"
-                                                     class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb ">
-                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                                        <li>
-                                                            <a href="#"
-                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New
-                                                                branch</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rename</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                @if(count($breadcrumbs['model'])>1)
+                                                    <div id="item-2"
+                                                         class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb ">
+                                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                                            @foreach($breadcrumbs['make'] as $item)
+                                                                <li>
+                                                                    <a href="#"
+                                                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{$item->alias}}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                             </li>
-
-                                            <!--  -->
+                                        @endif
+                                        @if(isset($breadcrumbs['model']))
                                             <li data-dropdow-1 aria-current="page" class="relative">
                                                 <div class="flex items-center gap-4">
-
                                                     <button data-dropdow type="button"
                                                             class=" text-sm font-medium text-gray-500  dark:text-gray-400">
-                                                        {{$breadcrumbs[0]->name}}
+                                                        {{$breadcrumbs['model'][0]->alias}}
                                                     </button>
+                                                    @if(count($breadcrumbs['model'])>1)
+                                                        <button data-dropdow
+                                                                class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
+                                                            + {{count($breadcrumbs['model'])-1}}
+                                                        </button>
 
-
-                                                    <button data-dropdow
-                                                            class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
-
-                                                        +7
-
-
-                                                    </button>
-
-                                                    <button data-dropdow type="button">
-                                                        <svg width="30" height="30" viewBox="0 0 20 21" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                  d="M5.293 7.79299C5.48053 7.60552 5.73484 7.5002 6 7.5002C6.26516 7.5002 6.51947 7.60552 6.707 7.79299L10 11.086L13.293 7.79299C13.3852 7.69748 13.4956 7.6213 13.6176 7.56889C13.7396 7.51648 13.8708 7.48889 14.0036 7.48774C14.1364 7.48659 14.2681 7.51189 14.391 7.56217C14.5139 7.61245 14.6255 7.6867 14.7194 7.78059C14.8133 7.87449 14.8875 7.98614 14.9378 8.10904C14.9881 8.23193 15.0134 8.36361 15.0123 8.49639C15.0111 8.62917 14.9835 8.76039 14.9311 8.88239C14.8787 9.0044 14.8025 9.11474 14.707 9.20699L10.707 13.207C10.5195 13.3945 10.2652 13.4998 10 13.4998C9.73484 13.4998 9.48053 13.3945 9.293 13.207L5.293 9.20699C5.10553 9.01946 5.00021 8.76515 5.00021 8.49999C5.00021 8.23483 5.10553 7.98052 5.293 7.79299Z"
-                                                                  fill="#9CA3AF"/>
-                                                        </svg>
-                                                    </button>
-
+                                                        <button data-dropdow type="button">
+                                                            <svg width="30" height="30" viewBox="0 0 20 21" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                      d="M5.293 7.79299C5.48053 7.60552 5.73484 7.5002 6 7.5002C6.26516 7.5002 6.51947 7.60552 6.707 7.79299L10 11.086L13.293 7.79299C13.3852 7.69748 13.4956 7.6213 13.6176 7.56889C13.7396 7.51648 13.8708 7.48889 14.0036 7.48774C14.1364 7.48659 14.2681 7.51189 14.391 7.56217C14.5139 7.61245 14.6255 7.6867 14.7194 7.78059C14.8133 7.87449 14.8875 7.98614 14.9378 8.10904C14.9881 8.23193 15.0134 8.36361 15.0123 8.49639C15.0111 8.62917 14.9835 8.76039 14.9311 8.88239C14.8787 9.0044 14.8025 9.11474 14.707 9.20699L10.707 13.207C10.5195 13.3945 10.2652 13.4998 10 13.4998C9.73484 13.4998 9.48053 13.3945 9.293 13.207L5.293 9.20699C5.10553 9.01946 5.00021 8.76515 5.00021 8.49999C5.00021 8.23483 5.10553 7.98052 5.293 7.79299Z"
+                                                                      fill="#9CA3AF"/>
+                                                            </svg>
+                                                        </button>
+                                                    @endif
                                                 </div>
                                                 <!-- выпадашка -->
-
-                                                <div id="item-1"
-                                                     class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb">
-                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                                        <li>
-                                                            <a href="#"
-                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New
-                                                                branch</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rename</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                @if(count($breadcrumbs['model'])>1)
+                                                    <div id="item-1"
+                                                         class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb">
+                                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                                            @foreach($breadcrumbs['model'] as $item)
+                                                                <li>
+                                                                    <a href="#"
+                                                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{$item->alias}}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                             </li>
                                         @endif
                                     </ol>
@@ -690,5 +616,6 @@
             e.preventDefault();
         }
     </script>
+    <script src="{{asset('js/main-js.js')}}"></script>
     <script src="{{asset("js/catalog-script.js")}}"></script>
 @stop
