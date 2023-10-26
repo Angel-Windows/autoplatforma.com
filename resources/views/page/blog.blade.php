@@ -4,19 +4,14 @@
         <div class="  bg-white dark:bg-gray-900 ">
             <div
                 class="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/background.png')] w-full h-[450px] xl:h-[537px] bg-no-repeat bg-cover bg-center bg-gradientBlock">
-
                 <div class="mx-auto max-w-[1290px] relative z-30">
-
-
                     <div
                         class="absolute top-[83px] left-1/2 px-4 mx-auto w-full max-w-[1290px] -translate-x-1/2   xl:px-0">
                                 <span class="block mb-4 text-lg font-normal  text-gray-300">Published in <a href="#"
-                                                                                                            class="font-semibold text-white text-lg hover:underline">World News</a></span>
-                        <h1 class="mb-4 max-w-[860px] text-2xl font-extrabold leading-none text-white sm:text-3xl lg:text-4xl">
-                            Flowbite Blocks Tutorial - Learn how to get started with custom sections using the Flowbite
-                            Blocks </h1>
+                                                                                                            class="font-semibold text-white text-lg hover:underline">{{$post->category_name}}</a></span>
+                        <h1 class="mb-4 max-w-[860px] text-2xl font-extrabold leading-none text-white sm:text-3xl lg:text-4xl">{{$post->title}}</h1>
                         <p class="block md:hidden text-lg font-normal text-gray-300">
-                            Before going digital, you might scribbling down some ideas in a sketchbook.
+                            {{$post->short_description}}
                         </p>
 
                     </div>
@@ -28,7 +23,8 @@
                     <div
                         class="xl:w-[828px] w-full max-w-none format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
 
-                        <div class="block md:flex justify-between items-center text-gray-500 dark:text-gray-400 text-base mb-6 md:mt-3 ">
+                        <div
+                            class="block md:flex justify-between items-center text-gray-500 dark:text-gray-400 text-base mb-6 md:mt-3 ">
 
                             <div class="flex gap-4 items-center">
                                 <div class="flex mb-4 md:mb-0">
@@ -37,28 +33,35 @@
                                     </p>
                                     <a href="#"
                                        class="text-gray-900 dark:text-white hover:underline no-underline  text-base font-bold ">
-                                        John
+                                        {{$post->author_name}}
                                     </a>
                                 </div>
 
                                 <div class="hidden md:flex gap-4 whitespace-no-wrap items-center justify-between">
                                     <span class="bg-gray-300 dark:bg-gray-400 w-2 h-2 rounded-full"></span>
                                     <span>
-                                                        <time class="text-base font-normal text-gray-500 dark:text-gray-400"
-                                                              pubdate class="uppercase"
-                                                              datetime="2022-03-08" title="August 3rd, 2022">August 3, 2022 2:20am</time>
+
+                                                        <time
+                                                            class="text-base font-normal text-gray-500 dark:text-gray-400"
+                                                            pubdate class="uppercase"
+                                                            datetime="{{$post->published_at}}"
+                                                            title="{{$post->published_at}}">{{$post->published_at}}</time>
                                                     </span>
                                 </div>
                             </div>
 
 
                             <div class="flex items-center gap-5 ">
-                                <div class="flex md:hidden gap-1 msll:gap-4 whitespace-no-wrap items-center justify-between">
+                                <div
+                                    class="flex md:hidden gap-1 msll:gap-4 whitespace-no-wrap items-center justify-between">
                                     <span class="bg-gray-300 dark:bg-gray-400 w-2 h-2 rounded-full"></span>
                                     <span>
-                                                            <time class="text-base font-normal text-gray-500 dark:text-gray-400"
-                                                                  pubdate class="uppercase" datetime="2022-03-08"
-                                                                  title="August 3rd, 2022">August 3, 2022 2:20am</time>
+
+                                                            <time
+                                                                class="text-base font-normal text-gray-500 dark:text-gray-400"
+                                                                pubdate class="uppercase"
+                                                                datetime="{{$post->published_at}}"
+                                                                title="{{$post->published_at}}">{{$post->published_at}}</time>
                                                         </span>
                                 </div>
 
@@ -151,25 +154,11 @@
                             </div>
 
                         </div>
-
-
-                        <!-- line across the screen -->
                         <div class=" h-[1px] bg-gray-200 w-[100%] mb-[32px]"></div>
-
-                        <p class="text-base md:text-2xl font-normal text-gray-500 mb-5">Flowbite is an open-source
-                            library of UI components built with the utility-first
-                            classes from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
-                            datepickers.</p>
-                        <p class="text-base md:text-lg font-normal text-gray-500 mb-5">Before going digital, you might
-                            benefit from scribbling down some ideas in a sketchbook. This way,
-                            you can think things through before committing to an actual design project.</p>
-                        <p class="text-base md:text-lg font-normal text-gray-500 mb-5">But then I found a <a
-                                href="https://flowbite.com">component library based on Tailwind CSS called Flowbite</a>.
-                            It comes with the most commonly used UI components, such as buttons, navigation
-                            bars, cards, form elements, and more which are conveniently built with the utility classes
-                            from
-                            Tailwind CSS.
-                        </p>
+                                            {!! $post->content !!}
+                        <p class="text-base md:text-2xl font-normal text-gray-500 mb-5"></p>
+                        <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
+                        <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
                         <figure class="mb-[65px] rounded-[8px]"><img
                                 src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png" alt=""
                                 class="w-[100%]">
@@ -178,57 +167,25 @@
 
 
                         <div class="md:mb-[82px]">
-                            <h2 class="leading-tight text-2xl md:text-4xl font-bold mb-4 md:mb-5 dark:text-white">
-                                Getting started with Flowbite</h2>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">First of all you need to
-                                understand how Flowbite works.
-                                This library is not another framework.
-                                Rather, it is a set of components based on Tailwind CSS that you can just copy-paste
-                                from the
-                                documentation.</p>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">It also includes a JavaScript
-                                file that enables
-                                interactive components, such as modals, dropdowns,
-                                and datepickers which you can optionally include into your project via CDN or NPM.</p>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">You can check out the <a
-                                    href="https://flowbite.com/docs/getting-started/quickstart/">quickstart
-                                    guide</a> to explore the elements by including the CDN files into your project. But if
-                                you want
-                                to build a project with Flowbite I recommend you to follow the build tools steps so that
-                                you can
-                                purge and minify the generated CSS.</p>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">You'll also receive a lot of
-                                useful application UI,
-                                Publisher UI, and e-commerce pages that can help
-                                you get started with your projects even faster. You can check out this <a
-                                    href="https://flowbite.com/docs/components/tables/">comparison table</a> to
-                                better understand
-                                the differences between the open-source and pro version of Flowbite.</p>
+                            <h2 class="leading-tight text-2xl md:text-4xl font-bold mb-4 md:mb-5 dark:text-white"></h2>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
                         </div>
 
 
                         <!-- Conclusion -->
                         <div>
-                            <h2 class="leading-tight text-2xl md:text-4xl font-bold mb-4 md:mb-5 dark:text-white">
-                                Conclusion</h2>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">While it might seem like
-                                extra work at a first glance,
-                                here are some key moments in which prototyping
-                                will come in handy:</p>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">While it might seem like
-                                extra work at a first glance,
-                                here are some key moments in which prototyping will come in handy:</p>
+                            <h2 class="leading-tight text-2xl md:text-4xl font-bold mb-4 md:mb-5 dark:text-white"></h2>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
 
                             <!-- line across the screen -->
                             <div class=" h-[1px] bg-gray-200 w-[80%] mb-5 mx-auto"></div>
 
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">While it might seem like
-                                extra work at a first glance,
-                                here are some key moments in which prototyping
-                                will come in handy:</p>
-                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5">While it might seem like
-                                extra work at a first glance,
-                                here are some key moments in which prototyping will come in handy:</p>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
+                            <p class="text-base md:text-lg font-normal text-gray-500 mb-5"></p>
                         </div>
 
 
@@ -307,8 +264,9 @@
                                     news</h4>
                                 <div class="mb-6 flex items-center">
                                     <a href="#" class="shrink-0">
-                                        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-1.png"
-                                             class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
+                                        <img
+                                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-1.png"
+                                            class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
                                     </a>
                                     <div class="ml-[10px]">
                                         <h5 class="mb-1 text-lg font-bold leading-tight dark:text-white text-gray-900">
@@ -325,8 +283,9 @@
                                 </div>
                                 <div class="mb-6 flex items-center">
                                     <a href="#" class="shrink-0">
-                                        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-2.png"
-                                             class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
+                                        <img
+                                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-2.png"
+                                            class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
                                     </a>
                                     <div class="ml-[10px]">
                                         <h5 class="mb-1 text-lg font-bold leading-tight dark:text-white text-gray-900">
@@ -342,8 +301,9 @@
                                 </div>
                                 <div class="mb-6 flex items-center">
                                     <a href="#" class="shrink-0">
-                                        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-3.png"
-                                             class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
+                                        <img
+                                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-3.png"
+                                            class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
                                     </a>
                                     <div class="ml-[10px]">
                                         <h5 class="mb-1 text-lg font-bold leading-tight dark:text-white text-gray-900">
@@ -360,8 +320,9 @@
 
                                 <div class="mb-6 flex items-center">
                                     <a href="#" class="shrink-0">
-                                        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-3.png"
-                                             class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
+                                        <img
+                                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-3.png"
+                                            class="mr-4 w-full w-[96px] h-[96px] rounded-lg" alt="Image 1">
                                     </a>
                                     <div class="ml-[10px]">
                                         <h5 class="mb-1 text-lg font-bold leading-tight dark:text-white text-gray-900">
@@ -495,5 +456,5 @@
     </div>
 @stop
 @section("script")
-    <script src="js/catalog-script.js"></script>
+    <script src="{{asset("js/catalog-script.js")}}"></script>
 @stop

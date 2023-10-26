@@ -8,7 +8,7 @@
                     <!-- left column -->
                     <form
                         method="POST"
-                        action="{{route('catalog.filter')}}"
+                        action="{{route('ajax.catalog.filter')}}"
                         class="w-[100%] md:w-[50%] lg:w-[30%]  rounded-[8px] bg-white dark:bg-gray-900 pt-[12px] pb-[12px] pl-[12px] pr-[12px] shadow-md filter_car_form">
                         <!-- Select make -->
                         <div class="mt-[15px] mb-[15px]">
