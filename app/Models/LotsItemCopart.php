@@ -62,6 +62,10 @@ class LotsItemCopart extends Model
     {
         return $this->hasOne(LotRunsDrive::class, 'id', "runs_drive_id");
     }
+    public function runsDrive()
+    {
+        return $this->hasOne(LotRunsDrive::class, 'id', "runs_drive_id");
+    }
 
     public function transsmision()
     {

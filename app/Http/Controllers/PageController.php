@@ -8,10 +8,18 @@ use App\Models\LotModels;
 use App\Models\LotsItemCopart;
 use Illuminate\Http\Request;
 use DB;
+use App\Repositories\Interfaces\BlogRepositoryInterface;
+use App\Repositories\Interfaces\CatalogRepositoryInterface;
 
 class PageController extends Controller
 {
-
+    private $blogRepository;
+    private $catalogRepository;
+    public function __construct(BlogRepositoryInterface $blogRepository, CatalogRepositoryInterface $catalogRepository)
+    {
+        $this->blogRepository = $blogRepository;
+        $this->catalogRepository = $catalogRepository;
+    }
     public function index()
     {
         return view("page.index");
@@ -20,8 +28,9 @@ class PageController extends Controller
     public function home()
     {
         $date_now = date("Y-m-d H:i:s"); // Получение текущей даты и времени
-        $data_card = LotsItemCopart::limit(12)
-            ->get();
+//        $data_card = LotsItemCopart::limit(12)
+//            ->get();
+        $data_card = $this->catalogRepository->all();
 
         return view("page.home")
             ->with("data_card", $data_card)

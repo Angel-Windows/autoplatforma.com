@@ -230,7 +230,7 @@
                                     <!-- тогле -->
                                     <div class="mb-[12px] relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
-                                            <input type="checkbox" value="" class="sr-only peer">
+                                            <input type="checkbox" name="auctions[]" value="" class="sr-only peer">
                                             <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
                                                     </span>
@@ -247,7 +247,7 @@
                                     <!-- тогле -->
                                     <div class="mb-[12px] relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
-                                            <input type="checkbox" value="" class="sr-only peer">
+                                            <input type="checkbox" name="auctions[]" value="0" class="sr-only peer">
                                             <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
                                                         </span>
@@ -263,7 +263,7 @@
                                     <!-- тогле -->
                                     <div class="mb-[12px] relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
-                                            <input type="checkbox" value="" class="sr-only peer">
+                                            <input type="checkbox" name="auctions[]" value="1" class="sr-only peer">
                                             <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
                                                             </span>
@@ -279,7 +279,7 @@
                                     <!-- тогле -->
                                     <div class=" relative">
                                         <label class="relative inline-flex items-center cursor-pointer ">
-                                            <input type="checkbox" value="" class="sr-only peer">
+                                            <input type="checkbox" name="auctions[]" value="2" class="sr-only peer">
                                             <span
                                                 class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 dark:peer-focus:ring-primary-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
                                                     </span>
@@ -380,7 +380,7 @@
                                                               d="m1 9 4-4-4-4"/>
                                                     </svg>
                                                     <button data-dropdow type="button"
-                                                            class=" text-sm font-medium -gray-700 dark:text-gray-400">{{$breadcrumbs['model'][0]->lot_makes_name}}</button>
+                                                            class=" text-sm font-medium -gray-700 dark:text-gray-400">{{$breadcrumbs['model'][0]->lot_makes_name ?? ""}}</button>
                                                     @if(count($breadcrumbs['make'])>1)
                                                         <button data-dropdow type="button"
                                                                 class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
@@ -397,7 +397,7 @@
                                                     @endif
                                                 </div>
                                                 <!-- выпадашка -->
-                                                @if(count($breadcrumbs['model'])>1)
+                                                @if(count($breadcrumbs['model']??[])>1)
                                                     <div id="item-2"
                                                          class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb ">
                                                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
@@ -419,7 +419,7 @@
                                                             class=" text-sm font-medium text-gray-500  dark:text-gray-400">
                                                         {{$breadcrumbs['model'][0]->alias}}
                                                     </button>
-                                                    @if(count($breadcrumbs['model'])>1)
+                                                    @if(count($breadcrumbs['model']??[])>1)
                                                         <button data-dropdow
                                                                 class="bg-blue-100 text-blue-800 text-xs font-medium leading-normal  px-[10px] py-[2px] rounded-md dark:bg-blue-200 dark:text-blue-800 hidden sm:flex ml-[6px]">
                                                             + {{count($breadcrumbs['model'])-1}}
@@ -436,7 +436,7 @@
                                                     @endif
                                                 </div>
                                                 <!-- выпадашка -->
-                                                @if(count($breadcrumbs['model'])>1)
+                                                @if(count($breadcrumbs['model']??[])>1)
                                                     <div id="item-1"
                                                          class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-[44px] right-[0px] none-breadcrumb">
                                                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
@@ -565,27 +565,16 @@
 @section("script")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>
-        // $(function () {
-        //     $('.filter_car_form').change(function (e) {
-        //         var $form = $(this);
-        //         $.ajax({
-        //             type: $form.attr('method'),
-        //             url: $form.attr('action'),
-        //             headers: {
-        //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //             },
-        //             data: $form.serialize()
-        //         }).done(function (data) {
-        //             history.pushState({}, "", "/catalog?page=5");
-        //             document.querySelector('.car_card_lis').innerHTML = data
-        //         }).fail(function () {
-        //             console.log('fail');
-        //         });
-        //         //отмена действия по умолчанию для кнопки submit
-        //         e.preventDefault();
-        //     });
-        // });
-
+        let noDataFilters =
+            {
+                'min-year': "{{$time_line['min']}}",
+                'max-year': "{{$time_line['max']}}",
+                'auction_status': "",
+                'conditions': "",
+                'damage': "",
+                'fuel': "",
+                'page': 1,
+            };
     </script>
     <script src="{{asset('js/main-js.js')}}"></script>
     <script src="{{asset("js/catalog-script.js")}}"></script>
