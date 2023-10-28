@@ -33,7 +33,7 @@ Route::prefix('ajax')->name('ajax.')->group(function () {
 });
 
 Route::get('/blogs', function (){
-
-})->name('blog');
+    return 'This is the blogs page'; // Или вернуть представление
+});
 
 
