@@ -193,16 +193,8 @@ class PageController extends Controller
 
     public function test(Request $request)
     {
-        $data_models_db = DB::table("lot_models")->leftJoin("lot_makes", "lot_makes.id", "lot_models.make_id")
-            ->select("lot_models.name", "lot_makes.name as lot_makes_name")
-            ->get();
-        $data_models = [];
-        foreach ($data_models_db as $item) {
-            $data_models[$item->lot_makes_name][] = $item->name;
-        }
 
-        return view("page.test")
-            ->with("data_models", $data_models);
+        return view("page.test");
 
     }
 }

@@ -80,7 +80,7 @@
             const query = this.value;
 
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', '{{route('search')}}?query=' + query, true);
+            xhr.open('GET', '{{route('ajax.search')}}?query=' + query, true);
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {

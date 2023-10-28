@@ -32,6 +32,8 @@ Route::prefix('ajax')->name('ajax.')->group(function () {
     Route::post('/post_add_img', [BlogController::class, "post_add_img"])->name('post.add_img');
 });
 
+Route::get('/blogs', function (){
 
+})->name('blog');
 
 
