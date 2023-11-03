@@ -14,9 +14,10 @@ use App\Http\Controllers\BlogController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ Route::get('/', function(){return view('welcome');})->name('index');
+ 
 Route::name('page.')->group(function () {
-    Route::get('/', [PageController::class, 'index'])->name('index');
+   
     Route::get('/home', [PageController::class, 'home'])->name('home');
     Route::get('/catalog', [CatalogController::class, 'catalog'])->name('catalog');
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
