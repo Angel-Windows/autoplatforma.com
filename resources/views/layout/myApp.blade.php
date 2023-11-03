@@ -18,6 +18,12 @@
 </head>
 <body id="body-page" class="dark:bg-gray-800">
 <div class="wrapper flex min-h-[100vh] flex-col">
+
+    <div id="iddddd"></div>
+    <script>
+        const ajax = document.querySelector('meta[name="ajax-search"]').getAttribute('content');
+        iddddd.innerHTML = ajax + " <br /> " + "{{route('ajax.search')}}";
+    </script>
     @include("layout.header")
     @yield("content")
     @include("layout.footer")
